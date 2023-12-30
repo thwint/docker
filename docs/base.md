@@ -1,7 +1,6 @@
 # alpine-base image
 
 ![Github workflow](https://github.com/thwint/docker/actions/workflows/base.yml/badge.svg)
-![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/thwint/alpine-base)
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/thwint/alpine-base)
 ![License GPL](https://img.shields.io/badge/license-GPL-blue.svg)
