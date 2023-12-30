@@ -1,0 +1,12 @@
+---
+version: '3.7'
+services:
+  chromium:
+    image: thwint/chromium-browser:latest
+    container_name: chromium
+    restart: always
+    hostname: chromium
+    environment:
+      BROWSER_URL: www.github.com
+    ports:
+      - 5900:5900

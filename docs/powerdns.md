@@ -1,7 +1,6 @@
 # Powerdns Docker image
 
 ![Github workflow](https://github.com/thwint/docker/actions/workflows/powerdns.yml/badge.svg)
-![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/thwint/powerdns)
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/thwint/powerdns)
 ![License GPL](https://img.shields.io/badge/license-GPL-blue.svg)

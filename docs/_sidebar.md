@@ -1,3 +1,4 @@
 - [Docker containers](README.md)
 - [Base image](base.md)
+- [Chromium browser](chromium-browser)
 - [Powerdns](powerdns.md)
