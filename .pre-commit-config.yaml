@@ -1,0 +1,39 @@
+---
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.5.0
+  hooks:
+  - id: check-added-large-files
+  - id: check-case-conflict
+  - id: check-merge-conflict
+    args: [--assume-in-merge]
+  - id: detect-private-key
+  - id: end-of-file-fixer
+    exclude: '^.*.md5$'
+  - id: mixed-line-ending
+    args: [--fix=lf]
+  - id: trailing-whitespace
+    args: [--markdown-linebreak-ext=md]
+
+- repo: https://github.com/Yelp/detect-secrets
+  rev: v1.4.0
+  hooks:
+  - id: detect-secrets
+    args: ['--baseline', '.secrets.baseline']
+
+- repo: https://github.com/gitleaks/gitleaks
+  rev: v8.18.1
+  hooks:
+  - id: gitleaks
+
+- repo: https://github.com/markdownlint/markdownlint.git
+  rev: v0.13.0
+  hooks:
+  - id: markdownlint
+    args: [-s, .markdownlint.rb]
+    exclude: "docs/_sidebar.md"
+
+- repo: https://github.com/hadolint/hadolint
+  rev: v2.12.0
+  hooks:
+    - id: hadolint
