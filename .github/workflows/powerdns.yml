@@ -1,0 +1,83 @@
+name: Build and push powerdns image
+
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ "powerdns-v*" ]
+    paths:
+      - 'powerdns*'
+      - '.github/workflows/powerdns.yml'
+  pull_request:
+    paths:
+      - 'powerdns*'
+      - '.github/workflows/powerdns.yml'
+    branches: [ "main" ]
+
+env:
+  IMAGE_NAME: powerdns
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Setup Docker BuildX
+        uses: docker/setup-buildx-action@v3
+
+      - name: Lowercase repository owner
+        id: repo-owner
+        run: |
+          echo "repo-owner=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Generate container image metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ steps.repo-owner.outputs.repo-owner }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=true
+          labels: |
+            issues=https://github.com/${{ steps.repo-owner.outputs.repo-owner }}/docker/issues
+            org.opencontainers.image.base.name=thwint/powerdns:latest
+            org.opencontainers.image.licenses=GPL-3.0-or-later
+            org.opencontainers.image.url=https://github.com/thwint/docker/powerdns
+            org.opencontainers.image.source=https://github.com/thwint/docker/powerdns
+            org.opencontainers.image.vendor=thwint
+            org.opencontainers.image.title=Powerdns
+            org.opencontainers.image.description=A docker container shipping PowerDNS nameserver
+            org.opencontainers.image.documentation=https://www.wintersoft.ch/docker
+            org.opencontainers.image.authors=tom.winterhalder@gmail.com
+          tags: |
+            type=schedule,pattern={{date 'YYYYMMDD'}}
+            type=match,pattern=powerdns-v(.*),group=1
+            type=sha
+
+      - name: Build and push image
+        id: build-and-push
+        uses: docker/build-push-action@v5
+        with:
+          build-args: |
+            BUILDTIME=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
+            VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
+            REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
+          context: ./powerdns/
+          push: ${{ github.event_name != 'pull_request' }}
+          platforms: linux/amd64, linux/arm64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

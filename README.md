@@ -7,6 +7,7 @@ See the full documentation on <http://www.wintersoft.ch/docker>
 
 ## Images
 
-| Image                      | Purpose                             | Info |
-| -------------------------- | ----------------------------------- | ---- |
-| [Base image](docs/base.md) | Base image used in other containers |  ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/thwint/alpine-base)    |
+| Image                        | Purpose                             | Info                                                                                        |
+| ---------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------- |
+| [Base image](docs/base.md)   | Base image used in other containers | ![Base Image Version (latest by date)](https://img.shields.io/docker/v/thwint/alpine-base)  |
+| [Powerdns](docs/powerdns.md) | An image to run powerdns server     | ![Powerdns Image Version (latest by date)](https://img.shields.io/docker/v/thwint/powerdns) |

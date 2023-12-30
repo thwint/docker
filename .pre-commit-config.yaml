@@ -37,3 +37,9 @@ repos:
   rev: v2.12.0
   hooks:
     - id: hadolint
+
+- repo: https://github.com/syntaqx/git-hooks
+  rev: v0.0.18
+  hooks:
+  - id: forbid-binary
+  - id: shellcheck

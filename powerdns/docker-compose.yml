@@ -1,0 +1,32 @@
+---
+version: '2.1'
+services:
+  pdns:
+    image: pdns
+    container_name: pdns
+    hostname: pdns
+    environment:
+      PDNS_LAUNCH: gmysql
+      PDNS_GMYSQL_HOST: pdns.db
+      PDNS_GMYSQL_PORT: 3306
+      PDNS_GMYSQL_DBNAME: pdns
+      PDNS_GMYSQL_USER: pdns
+      PDNS_GMYSQL_PASSWORD: pdnspassword # pragma: allowlist secret
+    ports:
+      - "54:53"
+    depends_on:
+      - "pdns.db"
+    networks:
+      - default
+
+  pdns.db:
+    image: mariadb
+    container_name: pdns.db
+    hostname: pdns.db
+    environment:
+      MYSQL_ROOT_PASSWORD: dbadminpassword # pragma: allowlist secret
+      MYSQL_DATABASE: pdns
+      MYSQL_USER: pdns
+      MYSQL_PASSWORD: pdnspassword # pragma: allowlist secret
+    networks:
+      - default

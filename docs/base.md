@@ -1,10 +1,10 @@
 # alpine-base image
 
-[![Github workflow](https://github.com/thwint/docker/actions/workflows/build-and-push-base-image.yml/badge.svg)](https://github.com/thwint/docker/actions/workflows/build-and-push-base-image.yml)
+![Github workflow](https://github.com/thwint/docker/actions/workflows/base.yml/badge.svg)
 ![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/thwint/alpine-base)
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/thwint/alpine-base)
-![License MIT](https://img.shields.io/badge/license-GPL-blue.svg)
+![License GPL](https://img.shields.io/badge/license-GPL-blue.svg)
 
 Custom docker base image based on Alpine linux. It is mainly for personal use only. Feel free to use and contribute to it.
 
