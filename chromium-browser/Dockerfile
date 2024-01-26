@@ -1,4 +1,4 @@
-FROM thwint/alpine-base:3.19.2
+FROM thwint/alpine-base:3.19.3
 
 COPY *.sh /
 
