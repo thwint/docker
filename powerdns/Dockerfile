@@ -1,4 +1,4 @@
-FROM thwint/alpine-base:3.19.3
+FROM thwint/alpine-base:3.19.4
 
 COPY *.sh /
 COPY pdns.conf /etc/pdns/
