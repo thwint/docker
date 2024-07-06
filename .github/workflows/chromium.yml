@@ -15,7 +15,7 @@ on:
 
 env:
   IMAGE_NAME: chromium-browser
-  CHROMIUM_VERSION: 124.0.6367.78-r0
+  CHROMIUM_VERSION: 126.0.6478.126-r0
 
 jobs:
   build:
