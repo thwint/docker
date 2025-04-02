@@ -1,7 +1,7 @@
 FROM alpine:3.21
 
-RUN apk add --no-cache tzdata=2024b-r1 curl=8.11.1-r0 openssl=3.3.2-r4 \
-    ca-certificates=20241010-r0 && \
+RUN apk add --no-cache tzdata=2025b-r0 curl=8.12.1-r1 openssl=3.3.3-r0 \
+    ca-certificates=20241121-r1 && \
     update-ca-certificates && \
     cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime && \
     echo "Europe/Zurich" > /etc/timezone && \
