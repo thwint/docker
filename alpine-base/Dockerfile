@@ -1,4 +1,4 @@
-FROM alpine:3.21
+FROM alpine:3.22.1
 
 RUN apk add --no-cache tzdata=2025b-r0 curl=8.12.1-r1 openssl=3.3.3-r0 \
     ca-certificates=20241121-r1 && \
