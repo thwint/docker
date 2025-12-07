@@ -5,7 +5,8 @@
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/thwint/alpine-base)
 ![License GPL](https://img.shields.io/badge/license-GPL-blue.svg)
 
-Custom docker base image based on Alpine linux. It is mainly for personal use only. Feel free to use and contribute to it.
+Custom docker base image based on Alpine linux. It is mainly for personal use
+only. Feel free to use and contribute to it.
 
 ## Image details
 

@@ -74,15 +74,19 @@ in `/etc/chromium/chromium.conf`.
 
 Current defaults:
 
-`CHROMIUM_FLAGS="--disable-gpu --disable-software-rasterizer --disable-dev-shm-usage --kiosk --touch-events=enabled --no-sandbox --disable-features=TranslateUI"`
+```shell
+CHROMIUM_FLAGS="--disable-gpu --disable-software-rasterizer \
+--disable-dev-shm-usage --kiosk --touch-events=enabled \
+--no-sandbox --disable-features=TranslateUI"
+```
 
 ### Environment variables
 
-| Variable name | default value              | description |
-| ------------- | -------------------------- | ----------- |
-| BROWSER_URL   |                            | The url to be opened when the browser starts.|
-| PASSWD_FILE   | /home/baseuser/.vnc/passwd | The file containing the vnc password         |
-| RESOLUTION    | 1024x768x24                | The resolution used for Xvfb                 |
+| Variable name | default value              | description                                   |
+| ------------- | -------------------------- | --------------------------------------------- |
+| BROWSER_URL   |                            | The url to be opened when the browser starts. |
+| PASSWD_FILE   | /home/baseuser/.vnc/passwd | The file containing the vnc password          |
+| RESOLUTION    | 1024x768x24                | The resolution used for Xvfb                  |
 
 There is no default startup url defined. But you can add an environment
 variable containing the desired startup url.

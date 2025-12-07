@@ -17,16 +17,14 @@ rm -f /tmp/.X"${DISPLAY#:}"-lock
 
 # start xvfb on display with resolution
 nohup /usr/bin/Xvfb "${DISPLAY}" -screen 0 "${RESOLUTION}" -ac +extension GLX \
-	+render -noreset > /dev/null || true &
+  +render -noreset >/dev/null || true &
 
 # Wait for display to become ready
-while [[ ! $(xdpyinfo -display "${DISPLAY}" 2> /dev/null) ]]; 
-do 
-  sleep .3; 
+while [[ ! $(xdpyinfo -display "${DISPLAY}" 2>/dev/null) ]]; do
+  sleep .3
 done
 
 # Start chromium and x11vnc
 chromium-browser "${BROWSER_URL}" &
 nohup x11vnc -xkb -noxrecord -noxfixes -noxdamage -display "${DISPLAY}" \
-	-forever -shared -passwdfile "${PASSWD_FILE}" -rfbport 5900 "$@"
-
+  -forever -shared -passwdfile "${PASSWD_FILE}" -rfbport 5900 "$@"
