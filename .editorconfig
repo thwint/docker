@@ -1,0 +1,26 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# General
+[*]
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+
+# Java (Defaults should suffice)
+#[*.java]
+
+# JavaScript & Friends (Defaults should suffice)
+#[*.{js,ts}]
+
+# Json & Friends
+[*.{json,yaml,yml}]
+indent_size = 2
+
+# XML & Friends
+[*.{xml,html,htm}]
+indent_size = 2
+
+# Shell scripts (Defaults should suffice)
+[*.sh]
+indent_size = 2

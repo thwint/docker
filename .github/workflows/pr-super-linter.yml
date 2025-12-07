@@ -1,5 +1,5 @@
 ---
-name: Markdownlint
+name: Lint codebase
 permissions:
   contents: read
   pull-requests: write
@@ -25,3 +25,13 @@ jobs:
         uses: super-linter/super-linter@502f4fe48a81a392756e173e39a861f8c8efe056 # v8.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_YAML: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_SHELL_SHFMT: true
+          VALIDATE_DOCKERFILE_HADOLINT: true
+
+          SHFMT_INDENT: 2
+
+          DISABLE_ERRORS: false
